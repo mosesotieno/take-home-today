@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Welcome to Take Home Today blog!\n\nTake Home Today is a reflective practice where I capture and document the interesting discoveries, valuable lessons, and insights I encounter each day. It encourages mindfulness and awareness of daily experiences, prompting me to appreciate the nuances of life, learn from them, and share these reflections with others. This concept fosters a habit of continuous learning and personal growth, making it a meaningful way to engage with the world around us. Take something home today!"
+  },
+  {
+    "objectID": "posts/stats/2024-11-06.html",
+    "href": "posts/stats/2024-11-06.html",
+    "title": "Statistics today",
+    "section": "",
+    "text": "USE AND MISUSES OF STATISTICAL SOFTWARE\n\nA computer performs the analysis requested whether or not the assumptions required for its proper use are satisfied. Incorrect analyses result when researchers take insufficient time to understand the statistical method, the assumptions for its use, or its appropriateness for the specific problem.\n_ Agresti\n\nIt is vital to understand the method before using it. Just knowing how to use statistical software does not guarantee proper analysis.\nYou need a good background in statistics to understand which method to select, which options to choose in that method, and how to make valid conclusions from that output"
+  },
+  {
+    "objectID": "posts/programming/2025-01-07.html",
+    "href": "posts/programming/2025-01-07.html",
+    "title": "SSH Failed Connection and Remedy",
+    "section": "",
+    "text": "Connecting to a server remotely can sometimes be challenging, even if you have your SSH keys. For example, if you encounter the error Permission denied (publickey), it means your machine is unable to communicate with the remote server.\nThis issue could occur if you’ve recently generated a new set of SSH keys, but those keys have not yet been added to the remote server.\nTo resolve this:\n\nGo to the machine having difficulty connecting to the server.\nCopy your public SSH key (usually found in ~/.ssh/id_rsa.pub).\nCreate a new ssh key then paste the key\n\nAnd that's it! Problem solved."
+  },
+  {
+    "objectID": "posts/family/2024-09-24.html",
+    "href": "posts/family/2024-09-24.html",
+    "title": "On subject of divorce",
+    "section": "",
+    "text": "Moses did not issue a command on the subject of divorce as the Pharisees put it. Moses permitted it. It was because of their hardness of hearts. It therefore means that divorce is not mandatory. Divorce is therefore choice. God did not command it.\n\nMatthew 19:3-11"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Take Home Today\nWelcome to “Take Home Today”! I’m Moses Otieno, and this blog is my little corner of the internet where I share the fascinating discoveries, valuable lessons, and enlightening realizations I encounter each day.\nIn our fast-paced world, it’s easy to overlook the small moments that hold the potential for growth and understanding. This blog is dedicated to capturing those insights—from the extraordinary to the everyday. Whether it’s a thought-provoking book I’ve read, a unique experience, or a conversation that sparked new ideas, I aim to create a space for reflection and connection.\nI believe that every day offers something worth pondering, and I invite you to join me on this journey. Let’s explore together, share insights, and perhaps even inspire each other along the way.\nThank you for being here!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Take Home Today",
+    "section": "",
+    "text": "SSH Failed Connection and Remedy\n\n\n\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nJan 7, 2025\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics today\n\n\n\n\n\n\nstatistics\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nNov 6, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nR for Data Science\n\n\n\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nOct 5, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nOn subject of divorce\n\n\n\n\n\n\nfamily\n\n\nmarriage\n\n\n\n\n\n\n\n\n\nSep 24, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics today\n\n\n\n\n\n\nnews\n\n\nstatistics\n\n\n\n\n\n\n\n\n\nSep 23, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics\n\n\n\n\n\n\nnews\n\n\nstatistics\n\n\n\n\n\n\n\n\n\nSep 23, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nSep 23, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/programming/2024-10-05.html",
+    "href": "posts/programming/2024-10-05.html",
+    "title": "R for Data Science",
+    "section": "",
+    "text": "R for Data Science is the ultimate book for learning R if you’re serious about data science. It’s incredibly accessible, explaining complex concepts with clarity. Honestly, words can’t capture how well it teaches!"
+  },
+  {
+    "objectID": "posts/stats/2024-09-23.html",
+    "href": "posts/stats/2024-09-23.html",
+    "title": "Statistics today",
+    "section": "",
+    "text": "Pareto Chart\n\nA pareto chart is bar graph with bars arranged by their heights in descending order.\n\n\nTo make a Pareto chart, arrange the bars according to their heights such that the bar with the largest height appears first on the left side, and then subsequent bars are arranged in descending order with the smallest height appearing last on the right side."
+  },
+  {
+    "objectID": "posts/stats/index.html",
+    "href": "posts/stats/index.html",
+    "title": "Statistics",
+    "section": "",
+    "text": "Introductory statistics by Prem S. Mann is a good statistical book for an introduction to statistics."
+  }
+]
