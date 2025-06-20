@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Moses Otieno">
-<meta name="dcterms.date" content="2024-09-24">
+<meta name="dcterms.date" content="2025-06-17">
 
-<title>On subject of divorce – Take Home Today</title>
+<title>How to Split Audio into 30-Minute Parts on Linux – Take Home Today</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -120,10 +154,14 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">On subject of divorce</h1>
+      <h1 class="title">How to Split Audio into 30-Minute Parts on Linux</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">family</div>
-                <div class="quarto-category">marriage</div>
+                <div class="quarto-category">linux</div>
+                <div class="quarto-category">audio</div>
+                <div class="quarto-category">ffmpeg</div>
+                <div class="quarto-category">audacity</div>
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">how-to</div>
               </div>
                   </div>
   </div>
@@ -141,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 24, 2024</p>
+        <p class="date">June 17, 2025</p>
       </div>
     </div>
     
@@ -160,12 +198,93 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Moses did not issue a command on the subject of divorce as the Pharisees put it. Moses permitted it. It was because of their hardness of hearts. It therefore means that divorce is not mandatory. Divorce is therefore choice. God did not command it.</p>
+<p>Have a long audio file — lecture, podcast, training — and want to split it into <strong>30-minute parts</strong>?<br>
+Here are three easy ways to do it on Linux:</p>
+<hr>
+<section id="using-ffmpeg-fastest-and-best" class="level2">
+<h2 class="anchored" data-anchor-id="using-ffmpeg-fastest-and-best">1️⃣ Using FFmpeg (fastest and best)</h2>
+<p>If you like the terminal, <strong>FFmpeg</strong> is a powerful tool that can do this in one line.</p>
+<section id="install-ffmpeg" class="level3">
+<h3 class="anchored" data-anchor-id="install-ffmpeg">Install FFmpeg</h3>
+<pre class="{bash}"><code># sudo apt update
+# sudo apt install ffmpeg</code></pre>
+<p>Check that it’s installed:</p>
+<pre class="{bash}"><code># ffmpeg -version</code></pre>
+<p>Split the audio</p>
+<pre class="{bash}"><code># ffmpeg -i input.mp3 -f segment -segment_time 1800 -c copy output_%03d.mp3 </code></pre>
+<p>Explanation:</p>
+<ul>
+<li><p>input.mp3: your audio file</p></li>
+<li><p>segment_time 1800: split every 1800 seconds = 30 minutes</p></li>
+<li><p>output_%03d.mp3: output files will be named output_000.mp3, output_001.mp3, etc.</p></li>
+</ul>
+<p>Example:</p>
+<pre class="{bash}"><code># ffmpeg -i lecture.mp3 -f segment -segment_time 1800 -c copy lecture_part_%03d.mp3</code></pre>
+<p>Tip: works for .mp3, .wav, .m4a, and more - just change the extension.</p>
+</section>
+</section>
+<section id="using-audacity-gui-option" class="level2">
+<h2 class="anchored" data-anchor-id="using-audacity-gui-option">Using Audacity (GUI option)</h2>
+<p>If you prefer a graphical interface, Audacity is an excellent open-source audio editor.</p>
+<p>Install Audacity bash Copy Edit sudo apt install audacity Steps: Open the audio file in Audacity</p>
+<p>Go to Analyze → Label Sounds… or manually place labels every 30 minutes</p>
+<p>Go to File → Export → Export Multiple</p>
+<p>Choose the format you want (mp3, wav, etc.)</p>
+<p>Audacity will export each labeled segment as a separate file</p>
+</section>
+<section id="using-python-for-scripting-you-can-also-script-this-in-python-using-pydub." class="level2">
+<h2 class="anchored" data-anchor-id="using-python-for-scripting-you-can-also-script-this-in-python-using-pydub.">Using Python (for scripting) You can also script this in Python using pydub.</h2>
+<div id="6c9ae465" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install pydub: </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install pydub </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Python script: </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># from pydub import AudioSegment </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># import math</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="load-your-audio-file" class="level3">
+<h3 class="anchored" data-anchor-id="load-your-audio-file">Load your audio file</h3>
+<div id="90b54d3c" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># audio = AudioSegment.from_file("input.mp3")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="set-chunk-length-30-minutes-in-milliseconds" class="level3">
+<h3 class="anchored" data-anchor-id="set-chunk-length-30-minutes-in-milliseconds">Set chunk length: 30 minutes in milliseconds</h3>
+<div id="cb1b349a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>chunk_length_ms <span class="op">=</span> <span class="dv">30</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="calculate-number-of-chunks" class="level1">
+<h1>Calculate number of chunks</h1>
+<div id="f1860c98" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># num_chunks = math.ceil(len(audio) / chunk_length_ms)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#for i in range(num_chunks): </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  start_ms = i * chunk_length_ms end_ms = min((i + 1) * chunk_length_ms, len(audio)) chunk = audio[start_ms:end_ms] chunk.export(f"output_part_{i+1}.mp3", format="mp3")</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print("Splitting done!") How to run:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="bonus-tip-automatic-transcription" class="level2">
+<h2 class="anchored" data-anchor-id="bonus-tip-automatic-transcription">Bonus Tip: Automatic Transcription</h2>
+<p>If you’re working with <strong>lectures, interviews, or podcasts</strong>, you might also want to <strong>transcribe</strong> the audio.</p>
+<p>One great tool I’ve found is <a href="https://turboscribe.ai/dashboard">TurboScribe.ai</a> — it works well for long audio and is easy to use.</p>
 <blockquote class="blockquote">
-<p>Matthew 19:3-11</p>
+<p>After splitting your audio into 30-minute parts, you can upload each part to TurboScribe.ai and get clean text transcripts.</p>
 </blockquote>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>
+<ul>
+<li><p>FFmpeg Documentation</p></li>
+<li><p>Audacity User Guide</p></li>
+<li><p>Pydub Documentation</p></li>
+<li><p>Linux Audio Tools Overview</p></li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

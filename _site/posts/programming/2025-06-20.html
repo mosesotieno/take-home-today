@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Moses Otieno">
-<meta name="dcterms.date" content="2024-09-24">
+<meta name="dcterms.date" content="2025-06-20">
 
-<title>On subject of divorce – Take Home Today</title>
+<title>Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux – Take Home Today</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,10 +120,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">On subject of divorce</h1>
+      <h1 class="title">Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">family</div>
-                <div class="quarto-category">marriage</div>
+                <div class="quarto-category">linux</div>
               </div>
                   </div>
   </div>
@@ -141,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 24, 2024</p>
+        <p class="date">June 20, 2025</p>
       </div>
     </div>
     
@@ -160,12 +159,134 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Moses did not issue a command on the subject of divorce as the Pharisees put it. Moses permitted it. It was because of their hardness of hearts. It therefore means that divorce is not mandatory. Divorce is therefore choice. God did not command it.</p>
-<blockquote class="blockquote">
-<p>Matthew 19:3-11</p>
-</blockquote>
+<p>Ever plugged in a hard drive, only for Linux to throw a tantrum and refuse to play nice?<br>
+That’s exactly what happened to me the other day. My external drive stubbornly refused to mount, throwing up errors and leaving my files out of reach.</p>
+<p>But here’s how I wrestled it back into submission — and how you can too!</p>
+<section id="the-situation" class="level2">
+<h2 class="anchored" data-anchor-id="the-situation">The Situation</h2>
+<p>I plugged in my external drive, and Linux wouldn’t mount it.<br>
+The device was detected (as <code>/dev/sdb1</code>), but I couldn’t access it. No auto-mount. No joy.</p>
+<p>So I rolled up my sleeves and used some simple terminal magic.</p>
+</section>
+<section id="step-1-unmount-the-drive-if-needed" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-unmount-the-drive-if-needed">Step 1: Unmount the Drive (If Needed)</h2>
+<p>Sometimes the system tries (and fails) to auto-mount. First, I made sure it was unmounted cleanly:</p>
+</section>
+<section id="step-2-create-a-mount-point" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-create-a-mount-point">Step 2: Create a Mount Point</h2>
+<p>Next, I needed a proper directory where the drive could be mounted. I created one called <code>Backups</code>, but you can choose any name you like:</p>
+<p><code>sudo mkdir /mnt/Backups</code></p>
+</section>
+<section id="step-3-mount-the-drive" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-mount-the-drive">Step 3: Mount the Drive</h2>
+<p>Finally, I manually mounted the drive to my new directory:</p>
+<p><code>sudo mount /dev/sdb1 /mnt/Backups/</code></p>
+<p>And just like that — success! The drive became accessible, and my files were right where they should be.</p>
+</section>
+<section id="do-i-have-to-follow-this-same-procedure-every-time" class="level2">
+<h2 class="anchored" data-anchor-id="do-i-have-to-follow-this-same-procedure-every-time">Do I Have to Follow This Same Procedure Every Time?</h2>
+<p>If you unplug the drive and plug it back in, Linux <em>might</em> auto-mount it correctly — or it might not (especially if the issue was due to filesystem quirks or permissions).</p>
+<p>If you find yourself repeating this often, you can add an entry to <code>/etc/fstab</code> so the drive mounts automatically to your chosen directory each time it’s connected. That way, no more manual mounting! 🚀</p>
+</section>
+<section id="how-to-auto-mount-your-drive-using-etcfstab" class="level1">
+<h1>How to Auto-Mount Your Drive Using <code>/etc/fstab</code></h1>
+<p>Here’s how you can make your drive auto-mount every time:</p>
+<section id="find-your-drives-uuid" class="level3">
+<h3 class="anchored" data-anchor-id="find-your-drives-uuid">1️⃣ Find Your Drive’s UUID</h3>
+<p>Run this command to list UUIDs for all connected drives:</p>
+<p><code>sudo blkid</code></p>
+<p>Look for something like this:</p>
+<p><code>/dev/sdb1: UUID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" TYPE="ext4"</code></p>
+<p>Copy the UUID of your drive.</p>
+</section>
+<section id="backup-etcfstab-just-in-case" class="level3">
+<h3 class="anchored" data-anchor-id="backup-etcfstab-just-in-case">2️⃣ Backup <code>/etc/fstab</code> (Just in Case)</h3>
+<p><code>sudo cp /etc/fstab /etc/fstab.bak</code></p>
+</section>
+<section id="edit-etcfstabsudo-nano-etcfstab" class="level3">
+<h3 class="anchored" data-anchor-id="edit-etcfstabsudo-nano-etcfstab">3️⃣ Edit <code>/etc/fstabsudo nano /etc/fstab</code></h3>
+</section>
+<section id="add-an-entry" class="level3">
+<h3 class="anchored" data-anchor-id="add-an-entry">4️⃣ Add an Entry</h3>
+<p><code>UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  /mnt/Backups  ext4  defaults  0  2</code></p>
+<p>Replace:</p>
+<ul>
+<li><p>UUID → your actual UUID</p></li>
+<li><p><code>/mnt/Backups</code> → your mount point</p></li>
+<li><p><code>ext4</code> → file system type (check from <code>blkid</code> — could also be <code>ntfs</code>, <code>vfat</code>, etc.)</p></li>
+</ul>
+</section>
+<section id="test-the-entry" class="level3">
+<h3 class="anchored" data-anchor-id="test-the-entry">5️⃣ Test the Entry</h3>
+<p><code>sudo mount -a</code></p>
+<p>If there’s no error — perfect! Your drive will now auto-mount on boot.</p>
+</section>
+<section id="bonus-tip-use-nofail-for-external-usb-drives" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-tip-use-nofail-for-external-usb-drives">Bonus Tip: Use <code>nofail</code> for External USB Drives</h3>
+<p><code>UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  /mnt/Backups  ext4  defaults,nofail  0  2</code></p>
+</section>
+</section>
+<section id="how-to-list-all-drives-in-linux" class="level1">
+<h1>How to List All Drives in Linux</h1>
+<p>Now that you know how to fix and auto-mount drives, here’s how you can easily see what’s connected to your system:</p>
+<section id="lsblk-the-friendly-overview" class="level3">
+<h3 class="anchored" data-anchor-id="lsblk-the-friendly-overview">📋 <code>lsblk</code> — The Friendly Overview</h3>
+<p><code>lsblk</code></p>
+</section>
+<section id="sudo-blkid-show-uuids-labels-filesystems" class="level3">
+<h3 class="anchored" data-anchor-id="sudo-blkid-show-uuids-labels-filesystems">📋 <code>sudo blkid</code> — Show UUIDs, Labels, Filesystems</h3>
+<p><code>sudo blkid</code></p>
+</section>
+<section id="df--h-show-mounted-drives-and-usage" class="level3">
+<h3 class="anchored" data-anchor-id="df--h-show-mounted-drives-and-usage">📋 <code>df -h</code> — Show Mounted Drives and Usage</h3>
+<p><code>df -h</code></p>
+</section>
+<section id="dmesg-grep--i-usb-check-usb-plug-events" class="level3">
+<h3 class="anchored" data-anchor-id="dmesg-grep--i-usb-check-usb-plug-events">📋 <code>dmesg | grep -i usb</code> — Check USB Plug Events</h3>
+<p><code>dmesg | grep -i usb</code></p>
+</section>
+<section id="quick-summary-which-command-to-use" class="level2">
+<h2 class="anchored" data-anchor-id="quick-summary-which-command-to-use">Quick Summary — Which Command to Use?</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>What you want to know</th>
+<th>Command to use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>See all drives and partitions visually</td>
+<td><code>lsblk</code></td>
+</tr>
+<tr class="even">
+<td>Get UUIDs and labels for <code>/etc/fstab</code></td>
+<td><code>sudo blkid</code></td>
+</tr>
+<tr class="odd">
+<td>See what is mounted + space used</td>
+<td><code>df -h</code></td>
+</tr>
+<tr class="even">
+<td>Debug USB detection</td>
+<td>`dmesg</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>When Linux refuses to mount your drive, don’t panic.<br>
+You can easily bring it back with a couple of simple commands — and if you want it automatic, <code>/etc/fstab</code> is your best friend.<br>
+Plus, you now know how to list and identify all your drives like a pro. 🚀</p>
+<p>Happy mounting!</p>
+<p><strong>Question for You:</strong><br>
+Have you ever run into stubborn drives or quirky Linux mount issues? How did you fix it?<br>
+Share your tips in the comments below! 🚀</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

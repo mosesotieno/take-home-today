@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Moses Otieno">
-<meta name="dcterms.date" content="2024-09-24">
+<meta name="dcterms.date" content="2025-02-26">
 
-<title>On subject of divorce – Take Home Today</title>
+<title>Firth’s penalized logistic regregssion – Take Home Today</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -120,10 +140,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">On subject of divorce</h1>
+      <h1 class="title">Firth’s penalized logistic regregssion</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">family</div>
-                <div class="quarto-category">marriage</div>
+                <div class="quarto-category">statistics</div>
               </div>
                   </div>
   </div>
@@ -141,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 24, 2024</p>
+        <p class="date">February 26, 2025</p>
       </div>
     </div>
     
@@ -160,14 +179,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Moses did not issue a command on the subject of divorce as the Pharisees put it. Moses permitted it. It was because of their hardness of hearts. It therefore means that divorce is not mandatory. Divorce is therefore choice. God did not command it.</p>
-<blockquote class="blockquote">
-<p>Matthew 19:3-11</p>
-</blockquote>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>The National Mental Health Survey of India (NMHS) was a ground-breaking nationwide study that harnessed a uniform, standardized methodology blending quantitative and qualitative approaches. Covering data from 12 states across diverse regions, its mission was to gauge the prevalence of psychiatric disorders, bridge treatment gaps, explore service utilization, and gauge the socioeconomic repercussions of these conditions. This initiative provided pivotal insights into the intricate landscape of mental health in India. One of the analyses planned for NMHS data was to undertake a logistic regression analysis with an aim to unravel how various sociodemographic factors influence the presence or absence of specific psychiatric disorders. Within this pursuit, two substantial challenges loomed. The first pertained to data separation, a complication that could perturb parameter estimation. The second challenge stemmed from the existence of disorders with lower prevalence rates, which resulted in datasets of limited density, potentially undermining the statistical reliability of our analysis. In response to these data-driven hurdles, NMHS recognized the critical necessity for an alternative to conventional logistic regression, one that could adeptly navigate these complexities, ensuring robust and dependable insights from the collected data. Traditional logistic regression, a widely prevalent method for modeling binary outcomes, has its limitations, especially when faced with limited datasets and rare outcomes. Here, the problem of “complete separation” can lead to convergence failure in traditional logistic regression estimations, a conundrum frequently encountered when handling binary variables. Firth’s penalized logistic regression emerges as a potent solution to these challenges, effectively mitigating analytical biases rooted in small sample sizes, rare events, and complete separation. This article endeavors to illuminate the superior efficacy of Firth’s method in managing small datasets within scientific research and advocates for its more widespread application. We provide a succinct introduction to Firth’s method, emphasizing its distinct advantages over alternative analytical approaches and underscoring its application to data from the NMHS 2015–2016, particularly for disorders with lower prevalence.</p>
+<p>This is good paper on firth penalised logistic regression. For more</p>
+<p><span class="citation" data-cites="suhas2023">(<a href="#ref-suhas2023" role="doc-biblioref">Suhas et al. 2023</a>)</span></p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-suhas2023" class="csl-entry" role="listitem">
+Suhas, Satish, Narayana Manjunatha, Channaveerachari Naveen Kumar, Vivek Benegal, Girish N. Rao, Mathew Varghese, and Gopalkrishna Gururaj. 2023. <span>“Firth’s Penalized Logistic Regression: A Superior Approach for Analysis of Data from India’s National Mental Health Survey, 2016.”</span> <em>Indian Journal of Psychiatry</em> 65 (12): 1208–13. <a href="https://doi.org/10.4103/indianjpsychiatry.indianjpsychiatry_827_23">https://doi.org/10.4103/indianjpsychiatry.indianjpsychiatry_827_23</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
