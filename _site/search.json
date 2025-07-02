@@ -7,18 +7,32 @@
     "text": "Welcome to Take Home Today blog!\n\nTake Home Today is a reflective practice where I capture and document the interesting discoveries, valuable lessons, and insights I encounter each day. It encourages mindfulness and awareness of daily experiences, prompting me to appreciate the nuances of life, learn from them, and share these reflections with others. This concept fosters a habit of continuous learning and personal growth, making it a meaningful way to engage with the world around us. Take something home today!"
   },
   {
-    "objectID": "posts/stats/2024-11-06.html",
-    "href": "posts/stats/2024-11-06.html",
+    "objectID": "posts/stats/2025-02-26.html",
+    "href": "posts/stats/2025-02-26.html",
+    "title": "Firth’s penalized logistic regregssion",
+    "section": "",
+    "text": "The National Mental Health Survey of India (NMHS) was a ground-breaking nationwide study that harnessed a uniform, standardized methodology blending quantitative and qualitative approaches. Covering data from 12 states across diverse regions, its mission was to gauge the prevalence of psychiatric disorders, bridge treatment gaps, explore service utilization, and gauge the socioeconomic repercussions of these conditions. This initiative provided pivotal insights into the intricate landscape of mental health in India. One of the analyses planned for NMHS data was to undertake a logistic regression analysis with an aim to unravel how various sociodemographic factors influence the presence or absence of specific psychiatric disorders. Within this pursuit, two substantial challenges loomed. The first pertained to data separation, a complication that could perturb parameter estimation. The second challenge stemmed from the existence of disorders with lower prevalence rates, which resulted in datasets of limited density, potentially undermining the statistical reliability of our analysis. In response to these data-driven hurdles, NMHS recognized the critical necessity for an alternative to conventional logistic regression, one that could adeptly navigate these complexities, ensuring robust and dependable insights from the collected data. Traditional logistic regression, a widely prevalent method for modeling binary outcomes, has its limitations, especially when faced with limited datasets and rare outcomes. Here, the problem of “complete separation” can lead to convergence failure in traditional logistic regression estimations, a conundrum frequently encountered when handling binary variables. Firth’s penalized logistic regression emerges as a potent solution to these challenges, effectively mitigating analytical biases rooted in small sample sizes, rare events, and complete separation. This article endeavors to illuminate the superior efficacy of Firth’s method in managing small datasets within scientific research and advocates for its more widespread application. We provide a succinct introduction to Firth’s method, emphasizing its distinct advantages over alternative analytical approaches and underscoring its application to data from the NMHS 2015–2016, particularly for disorders with lower prevalence.\nThis is good paper on firth penalised logistic regression. For more\n(Suhas et al. 2023)"
+  },
+  {
+    "objectID": "posts/stats/2025-02-26.html#abstract",
+    "href": "posts/stats/2025-02-26.html#abstract",
+    "title": "Firth’s penalized logistic regregssion",
+    "section": "",
+    "text": "The National Mental Health Survey of India (NMHS) was a ground-breaking nationwide study that harnessed a uniform, standardized methodology blending quantitative and qualitative approaches. Covering data from 12 states across diverse regions, its mission was to gauge the prevalence of psychiatric disorders, bridge treatment gaps, explore service utilization, and gauge the socioeconomic repercussions of these conditions. This initiative provided pivotal insights into the intricate landscape of mental health in India. One of the analyses planned for NMHS data was to undertake a logistic regression analysis with an aim to unravel how various sociodemographic factors influence the presence or absence of specific psychiatric disorders. Within this pursuit, two substantial challenges loomed. The first pertained to data separation, a complication that could perturb parameter estimation. The second challenge stemmed from the existence of disorders with lower prevalence rates, which resulted in datasets of limited density, potentially undermining the statistical reliability of our analysis. In response to these data-driven hurdles, NMHS recognized the critical necessity for an alternative to conventional logistic regression, one that could adeptly navigate these complexities, ensuring robust and dependable insights from the collected data. Traditional logistic regression, a widely prevalent method for modeling binary outcomes, has its limitations, especially when faced with limited datasets and rare outcomes. Here, the problem of “complete separation” can lead to convergence failure in traditional logistic regression estimations, a conundrum frequently encountered when handling binary variables. Firth’s penalized logistic regression emerges as a potent solution to these challenges, effectively mitigating analytical biases rooted in small sample sizes, rare events, and complete separation. This article endeavors to illuminate the superior efficacy of Firth’s method in managing small datasets within scientific research and advocates for its more widespread application. We provide a succinct introduction to Firth’s method, emphasizing its distinct advantages over alternative analytical approaches and underscoring its application to data from the NMHS 2015–2016, particularly for disorders with lower prevalence.\nThis is good paper on firth penalised logistic regression. For more\n(Suhas et al. 2023)"
+  },
+  {
+    "objectID": "posts/stats/2024-09-23.html",
+    "href": "posts/stats/2024-09-23.html",
     "title": "Statistics today",
     "section": "",
-    "text": "USE AND MISUSES OF STATISTICAL SOFTWARE\n\nA computer performs the analysis requested whether or not the assumptions required for its proper use are satisfied. Incorrect analyses result when researchers take insufficient time to understand the statistical method, the assumptions for its use, or its appropriateness for the specific problem.\n_ Agresti\n\nIt is vital to understand the method before using it. Just knowing how to use statistical software does not guarantee proper analysis.\nYou need a good background in statistics to understand which method to select, which options to choose in that method, and how to make valid conclusions from that output"
+    "text": "Pareto Chart\n\nA pareto chart is bar graph with bars arranged by their heights in descending order.\n\n\nTo make a Pareto chart, arrange the bars according to their heights such that the bar with the largest height appears first on the left side, and then subsequent bars are arranged in descending order with the smallest height appearing last on the right side."
   },
   {
     "objectID": "posts/programming/2025-01-07.html",
     "href": "posts/programming/2025-01-07.html",
     "title": "SSH Failed Connection and Remedy",
     "section": "",
-    "text": "Connecting to a server remotely can sometimes be challenging, even if you have your SSH keys. For example, if you encounter the error Permission denied (publickey), it means your machine is unable to communicate with the remote server.\nThis issue could occur if you’ve recently generated a new set of SSH keys, but those keys have not yet been added to the remote server.\nTo resolve this:\n\nGo to the machine having difficulty connecting to the server.\nCopy your public SSH key (usually found in ~/.ssh/id_rsa.pub).\nCreate a new ssh key then paste the key\n\nAnd that's it! Problem solved."
+    "text": "Connecting to a server remotely can sometimes be challenging, even if you have your SSH keys. For example, if you encounter the error Permission denied (publickey), it means your machine is unable to communicate with the remote server.\nThis issue could occur if you’ve recently generated a new set of SSH keys, but those keys have not yet been added to the remote server.\nTo resolve this:\n\nGo to the machine having difficulty connecting to the server.\nCopy your public SSH key (usually found in ~/.ssh/id_rsa.pub).\nCreate a new ssh key then paste the key\n\nAnd that’s it! Problem solved."
   },
   {
     "objectID": "posts/family/2024-09-24.html",
@@ -26,6 +40,13 @@
     "title": "On subject of divorce",
     "section": "",
     "text": "Moses did not issue a command on the subject of divorce as the Pharisees put it. Moses permitted it. It was because of their hardness of hearts. It therefore means that divorce is not mandatory. Divorce is therefore choice. God did not command it.\n\nMatthew 19:3-11"
+  },
+  {
+    "objectID": "posts/audio/batch-processing-audtion.html",
+    "href": "posts/audio/batch-processing-audtion.html",
+    "title": "Batch Processing in Adobe Audition",
+    "section": "",
+    "text": "Batch processing in Adobe Audition allows you to apply effects, convert file formats, normalize audio, and automate repetitive tasks across multiple audio files at once. Here’s how you can do it:\n\nSteps for Batch Processing in Adobe Audition\n\n1. Open the Batch Process Panel\n\nGo to Window → Batch Process to open the Batch Processing Panel.\n\n\n\n2. Add Audio Files\n\nClick the Add Files button or drag and drop multiple audio files into the batch processing panel.\n\n\n\n3. Choose a Favorite (Optional)\n\nIf you want to apply a specific effect or process to all files, create a Favorite first:\n\nGo to Effects → Favorites → Start Recording Favorite.\nApply the desired effects (e.g., noise reduction, EQ, compression, normalization).\nStop recording and save the Favorite.\nSelect the Favorite from the Apply Favorite dropdown in the Batch Process panel.\n\n\n\n\n4. Select an Output Format\n\nChoose the output format (WAV, MP3, AAC, FLAC, etc.).\nClick Options to adjust bit rate, sample rate, and other settings.\n\n\n\n5. Choose an Output Location\n\nSet the destination folder where the processed files will be saved.\n\n\n\n6. Start the Batch Process\n\nClick Run to process all files.\n\n\n\n\nCommon Uses of Batch Processing\n\nConverting multiple files to MP3 (or another format)\nApplying noise reduction to a set of recordings\nNormalizing audio levels across multiple files\nTrimming silence from the beginning and end of recordings\nApplying EQ and compression for a consistent sound"
   },
   {
     "objectID": "about.html",
@@ -39,7 +60,49 @@
     "href": "index.html",
     "title": "Take Home Today",
     "section": "",
-    "text": "SSH Failed Connection and Remedy\n\n\n\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nJan 7, 2025\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics today\n\n\n\n\n\n\nstatistics\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nNov 6, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nR for Data Science\n\n\n\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nOct 5, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nOn subject of divorce\n\n\n\n\n\n\nfamily\n\n\nmarriage\n\n\n\n\n\n\n\n\n\nSep 24, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics today\n\n\n\n\n\n\nnews\n\n\nstatistics\n\n\n\n\n\n\n\n\n\nSep 23, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics\n\n\n\n\n\n\nnews\n\n\nstatistics\n\n\n\n\n\n\n\n\n\nSep 23, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nSep 23, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\nNo matching items"
+    "text": "Batch Processing in Adobe Audition\n\n\n\n\n\n\naudio\n\n\nffmpeg\n\n\naudition\n\n\nhow-to\n\n\n\n\n\n\n\n\n\nJul 2, 2025\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nManual Mount Magic: Fixing Hard Drive Mount Errors in Linux\n\n\n\n\n\n\nlinux\n\n\n\n\n\n\n\n\n\nJun 20, 2025\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Split Audio into 30-Minute Parts on Linux\n\n\n\n\n\n\nlinux\n\n\naudio\n\n\nffmpeg\n\n\naudacity\n\n\npython\n\n\nhow-to\n\n\n\n\n\n\n\n\n\nJun 17, 2025\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nFirth’s penalized logistic regregssion\n\n\n\n\n\n\nstatistics\n\n\n\n\n\n\n\n\n\nFeb 26, 2025\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nSSH Failed Connection and Remedy\n\n\n\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nJan 7, 2025\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics today\n\n\n\n\n\n\nstatistics\n\n\nsoftware\n\n\n\n\n\n\n\n\n\nNov 6, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nR for Data Science\n\n\n\n\n\n\nprogramming\n\n\n\n\n\n\n\n\n\nOct 5, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nOn subject of divorce\n\n\n\n\n\n\nfamily\n\n\nmarriage\n\n\n\n\n\n\n\n\n\nSep 24, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics today\n\n\n\n\n\n\nnews\n\n\nstatistics\n\n\n\n\n\n\n\n\n\nSep 23, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics\n\n\n\n\n\n\nnews\n\n\nstatistics\n\n\n\n\n\n\n\n\n\nSep 23, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nSep 23, 2024\n\n\nMoses Otieno\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/audio/split-audio.html",
+    "href": "posts/audio/split-audio.html",
+    "title": "How to Split Audio into 30-Minute Parts on Linux",
+    "section": "",
+    "text": "Have a long audio file — lecture, podcast, training — and want to split it into 30-minute parts?\nHere are three easy ways to do it on Linux:"
+  },
+  {
+    "objectID": "posts/audio/split-audio.html#using-ffmpeg-fastest-and-best",
+    "href": "posts/audio/split-audio.html#using-ffmpeg-fastest-and-best",
+    "title": "How to Split Audio into 30-Minute Parts on Linux",
+    "section": "1️⃣ Using FFmpeg (fastest and best)",
+    "text": "1️⃣ Using FFmpeg (fastest and best)\nIf you like the terminal, FFmpeg is a powerful tool that can do this in one line.\n\nInstall FFmpeg\n# sudo apt update\n# sudo apt install ffmpeg\nCheck that it’s installed:\n# ffmpeg -version\nSplit the audio\n# ffmpeg -i input.mp3 -f segment -segment_time 1800 -c copy output_%03d.mp3 \nExplanation:\n\ninput.mp3: your audio file\nsegment_time 1800: split every 1800 seconds = 30 minutes\noutput_%03d.mp3: output files will be named output_000.mp3, output_001.mp3, etc.\n\nExample:\n# ffmpeg -i lecture.mp3 -f segment -segment_time 1800 -c copy lecture_part_%03d.mp3\nTip: works for .mp3, .wav, .m4a, and more - just change the extension."
+  },
+  {
+    "objectID": "posts/audio/split-audio.html#using-audacity-gui-option",
+    "href": "posts/audio/split-audio.html#using-audacity-gui-option",
+    "title": "How to Split Audio into 30-Minute Parts on Linux",
+    "section": "Using Audacity (GUI option)",
+    "text": "Using Audacity (GUI option)\nIf you prefer a graphical interface, Audacity is an excellent open-source audio editor.\nInstall Audacity bash Copy Edit sudo apt install audacity Steps: Open the audio file in Audacity\nGo to Analyze → Label Sounds… or manually place labels every 30 minutes\nGo to File → Export → Export Multiple\nChoose the format you want (mp3, wav, etc.)\nAudacity will export each labeled segment as a separate file"
+  },
+  {
+    "objectID": "posts/audio/split-audio.html#using-python-for-scripting-you-can-also-script-this-in-python-using-pydub.",
+    "href": "posts/audio/split-audio.html#using-python-for-scripting-you-can-also-script-this-in-python-using-pydub.",
+    "title": "How to Split Audio into 30-Minute Parts on Linux",
+    "section": "Using Python (for scripting) You can also script this in Python using pydub.",
+    "text": "Using Python (for scripting) You can also script this in Python using pydub.\n\n# Install pydub: \n# pip install pydub \n\n# Python script: \n# from pydub import AudioSegment \n# import math\n\n\nLoad your audio file\n\n# audio = AudioSegment.from_file(\"input.mp3\")\n\n\n\nSet chunk length: 30 minutes in milliseconds\n\nchunk_length_ms = 30 * 60 * 1000"
+  },
+  {
+    "objectID": "posts/audio/split-audio.html#bonus-tip-automatic-transcription",
+    "href": "posts/audio/split-audio.html#bonus-tip-automatic-transcription",
+    "title": "How to Split Audio into 30-Minute Parts on Linux",
+    "section": "Bonus Tip: Automatic Transcription",
+    "text": "Bonus Tip: Automatic Transcription\nIf you’re working with lectures, interviews, or podcasts, you might also want to transcribe the audio.\nOne great tool I’ve found is TurboScribe.ai — it works well for long audio and is easy to use.\n\nAfter splitting your audio into 30-minute parts, you can upload each part to TurboScribe.ai and get clean text transcripts."
+  },
+  {
+    "objectID": "posts/audio/split-audio.html#further-reading",
+    "href": "posts/audio/split-audio.html#further-reading",
+    "title": "How to Split Audio into 30-Minute Parts on Linux",
+    "section": "Further Reading",
+    "text": "Further Reading\n\nFFmpeg Documentation\nAudacity User Guide\nPydub Documentation\nLinux Audio Tools Overview"
   },
   {
     "objectID": "posts/programming/2024-10-05.html",
@@ -49,11 +112,67 @@
     "text": "R for Data Science is the ultimate book for learning R if you’re serious about data science. It’s incredibly accessible, explaining complex concepts with clarity. Honestly, words can’t capture how well it teaches!"
   },
   {
-    "objectID": "posts/stats/2024-09-23.html",
-    "href": "posts/stats/2024-09-23.html",
+    "objectID": "posts/programming/2025-06-20.html",
+    "href": "posts/programming/2025-06-20.html",
+    "title": "Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux",
+    "section": "",
+    "text": "Ever plugged in a hard drive, only for Linux to throw a tantrum and refuse to play nice?\nThat’s exactly what happened to me the other day. My external drive stubbornly refused to mount, throwing up errors and leaving my files out of reach.\nBut here’s how I wrestled it back into submission — and how you can too!"
+  },
+  {
+    "objectID": "posts/programming/2025-06-20.html#the-situation",
+    "href": "posts/programming/2025-06-20.html#the-situation",
+    "title": "Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux",
+    "section": "The Situation",
+    "text": "The Situation\nI plugged in my external drive, and Linux wouldn’t mount it.\nThe device was detected (as /dev/sdb1), but I couldn’t access it. No auto-mount. No joy.\nSo I rolled up my sleeves and used some simple terminal magic."
+  },
+  {
+    "objectID": "posts/programming/2025-06-20.html#step-1-unmount-the-drive-if-needed",
+    "href": "posts/programming/2025-06-20.html#step-1-unmount-the-drive-if-needed",
+    "title": "Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux",
+    "section": "Step 1: Unmount the Drive (If Needed)",
+    "text": "Step 1: Unmount the Drive (If Needed)\nSometimes the system tries (and fails) to auto-mount. First, I made sure it was unmounted cleanly:"
+  },
+  {
+    "objectID": "posts/programming/2025-06-20.html#step-2-create-a-mount-point",
+    "href": "posts/programming/2025-06-20.html#step-2-create-a-mount-point",
+    "title": "Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux",
+    "section": "Step 2: Create a Mount Point",
+    "text": "Step 2: Create a Mount Point\nNext, I needed a proper directory where the drive could be mounted. I created one called Backups, but you can choose any name you like:\nsudo mkdir /mnt/Backups"
+  },
+  {
+    "objectID": "posts/programming/2025-06-20.html#step-3-mount-the-drive",
+    "href": "posts/programming/2025-06-20.html#step-3-mount-the-drive",
+    "title": "Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux",
+    "section": "Step 3: Mount the Drive",
+    "text": "Step 3: Mount the Drive\nFinally, I manually mounted the drive to my new directory:\nsudo mount /dev/sdb1 /mnt/Backups/\nAnd just like that — success! The drive became accessible, and my files were right where they should be."
+  },
+  {
+    "objectID": "posts/programming/2025-06-20.html#do-i-have-to-follow-this-same-procedure-every-time",
+    "href": "posts/programming/2025-06-20.html#do-i-have-to-follow-this-same-procedure-every-time",
+    "title": "Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux",
+    "section": "Do I Have to Follow This Same Procedure Every Time?",
+    "text": "Do I Have to Follow This Same Procedure Every Time?\nIf you unplug the drive and plug it back in, Linux might auto-mount it correctly — or it might not (especially if the issue was due to filesystem quirks or permissions).\nIf you find yourself repeating this often, you can add an entry to /etc/fstab so the drive mounts automatically to your chosen directory each time it’s connected. That way, no more manual mounting! 🚀"
+  },
+  {
+    "objectID": "posts/programming/2025-06-20.html#quick-summary-which-command-to-use",
+    "href": "posts/programming/2025-06-20.html#quick-summary-which-command-to-use",
+    "title": "Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux",
+    "section": "Quick Summary — Which Command to Use?",
+    "text": "Quick Summary — Which Command to Use?\n\n\n\nWhat you want to know\nCommand to use\n\n\n\n\nSee all drives and partitions visually\nlsblk\n\n\nGet UUIDs and labels for /etc/fstab\nsudo blkid\n\n\nSee what is mounted + space used\ndf -h\n\n\nDebug USB detection\n`dmesg"
+  },
+  {
+    "objectID": "posts/programming/2025-06-20.html#takeaway",
+    "href": "posts/programming/2025-06-20.html#takeaway",
+    "title": "Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux",
+    "section": "Takeaway",
+    "text": "Takeaway\nWhen Linux refuses to mount your drive, don’t panic.\nYou can easily bring it back with a couple of simple commands — and if you want it automatic, /etc/fstab is your best friend.\nPlus, you now know how to list and identify all your drives like a pro. 🚀\nHappy mounting!\nQuestion for You:\nHave you ever run into stubborn drives or quirky Linux mount issues? How did you fix it?\nShare your tips in the comments below! 🚀"
+  },
+  {
+    "objectID": "posts/stats/2024-11-06.html",
+    "href": "posts/stats/2024-11-06.html",
     "title": "Statistics today",
     "section": "",
-    "text": "Pareto Chart\n\nA pareto chart is bar graph with bars arranged by their heights in descending order.\n\n\nTo make a Pareto chart, arrange the bars according to their heights such that the bar with the largest height appears first on the left side, and then subsequent bars are arranged in descending order with the smallest height appearing last on the right side."
+    "text": "USE AND MISUSES OF STATISTICAL SOFTWARE\n\nA computer performs the analysis requested whether or not the assumptions required for its proper use are satisfied. Incorrect analyses result when researchers take insufficient time to understand the statistical method, the assumptions for its use, or its appropriateness for the specific problem.\n_ Agresti\n\nIt is vital to understand the method before using it. Just knowing how to use statistical software does not guarantee proper analysis.\nYou need a good background in statistics to understand which method to select, which options to choose in that method, and how to make valid conclusions from that output"
   },
   {
     "objectID": "posts/stats/index.html",
