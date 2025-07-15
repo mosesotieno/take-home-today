@@ -1,0 +1,16 @@
+---
+title: "Statistics today"
+author: "Moses Otieno"
+date: "2024-11-06"
+categories: [statistics, software]
+---
+
+**USE AND MISUSES OF STATISTICAL SOFTWARE**
+
+> A computer performs the analysis requested whether or not the assumptions required for its proper use are satisfied. Incorrect analyses result when researchers take insufficient time to understand the statistical method, the assumptions for its use, or its appropriateness for the specific problem.
+>
+> \_ *Agresti*
+
+It is vital to understand the method before using it. Just knowing how to use statistical software does not guarantee proper analysis.
+
+You need a good background in statistics to understand which method to select, which options to choose in that method, and how to make valid conclusions from that output

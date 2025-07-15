@@ -1,0 +1,20 @@
+---
+title: "SSH Failed Connection and Remedy"
+author: "Moses Otieno"
+date: "2025-01-07"
+categories: [programming]
+---
+
+Connecting to a server remotely can sometimes be challenging, even if you have your SSH keys. For example, if you encounter the error `Permission denied (publickey)`, it means your machine is unable to communicate with the remote server.
+
+This issue could occur if you've recently generated a new set of SSH keys, but those keys have not yet been added to the remote server.
+
+To resolve this:
+
+1.  Go to the machine having difficulty connecting to the server.
+
+2.  Copy your public SSH key (usually found in `~/.ssh/id_rsa.pub`).
+
+3.  Create a new ssh key then paste the key
+
+And that's it! Problem solved.

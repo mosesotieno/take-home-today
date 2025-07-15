@@ -1,0 +1,8 @@
+---
+title: "R for Data Science"
+author: "Moses Otieno"
+date: "2024-10-05"
+categories: [programming]
+---
+
+[R for Data Science](https://r4ds.hadley.nz/) is the ultimate book for learning R if you're serious about data science. It's incredibly accessible, explaining complex concepts with clarity. Honestly, words can't capture how well it teaches!

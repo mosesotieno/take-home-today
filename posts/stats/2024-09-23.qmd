@@ -1,0 +1,12 @@
+---
+title: "Statistics today"
+author: "Moses Otieno"
+date: "2024-09-23"
+categories: [news, statistics]
+---
+
+Pareto Chart
+
+:   A pareto chart is bar graph with bars arranged by their heights in descending order.
+
+To make a Pareto chart, arrange the bars according to their heights such that the bar with the largest height appears first on the left side, and then subsequent bars are arranged in descending order with the smallest height appearing last on the right side.

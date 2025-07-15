@@ -1,0 +1,120 @@
+---
+title: "How to Split Audio into 30-Minute Parts on Linux"
+author: "Moses Otieno"
+date: 2025-06-17
+categories: [linux, audio, ffmpeg, audacity, python, how-to]
+tags: [linux tools, audio processing, open source, automation, scripting, pydub, ffmpeg, audacity]
+---
+
+Have a long audio file — lecture, podcast, training — and want to split it into **30-minute parts**?\
+Here are three easy ways to do it on Linux:
+
+------------------------------------------------------------------------
+
+## 1️⃣ Using FFmpeg (fastest and best)
+
+If you like the terminal, **FFmpeg** is a powerful tool that can do this in one line.
+
+### Install FFmpeg
+
+```{bash}
+# sudo apt update
+# sudo apt install ffmpeg
+```
+
+Check that it's installed:
+
+```{bash}
+# ffmpeg -version
+```
+
+Split the audio
+
+```{bash}
+# ffmpeg -i input.mp3 -f segment -segment_time 1800 -c copy output_%03d.mp3 
+```
+
+Explanation:
+
+-   input.mp3: your audio file
+
+-   segment_time 1800: split every 1800 seconds = 30 minutes
+
+-   output\_%03d.mp3: output files will be named output_000.mp3, output_001.mp3, etc.
+
+Example:
+
+```{bash}
+# ffmpeg -i lecture.mp3 -f segment -segment_time 1800 -c copy lecture_part_%03d.mp3
+```
+
+Tip: works for .mp3, .wav, .m4a, and more - just change the extension.
+
+## Using Audacity (GUI option)
+
+If you prefer a graphical interface, Audacity is an excellent open-source audio editor.
+
+Install Audacity bash Copy Edit sudo apt install audacity Steps: Open the audio file in Audacity
+
+Go to Analyze → Label Sounds... or manually place labels every 30 minutes
+
+Go to File → Export → Export Multiple
+
+Choose the format you want (mp3, wav, etc.)
+
+Audacity will export each labeled segment as a separate file
+
+## Using Python (for scripting) You can also script this in Python using pydub.
+
+```{python}
+
+# Install pydub: 
+# pip install pydub 
+
+# Python script: 
+# from pydub import AudioSegment 
+# import math
+
+
+```
+
+### Load your audio file
+
+```{python}
+# audio = AudioSegment.from_file("input.mp3")
+```
+
+### Set chunk length: 30 minutes in milliseconds
+
+```{python}
+chunk_length_ms = 30 * 60 * 1000
+```
+
+# Calculate number of chunks
+
+```{python}
+# num_chunks = math.ceil(len(audio) / chunk_length_ms)
+
+#for i in range(num_chunks): 
+#  start_ms = i * chunk_length_ms end_ms = min((i + 1) * chunk_length_ms, len(audio)) chunk = audio[start_ms:end_ms] chunk.export(f"output_part_{i+1}.mp3", format="mp3")
+
+# print("Splitting done!") How to run:
+```
+
+## Bonus Tip: Automatic Transcription
+
+If you're working with **lectures, interviews, or podcasts**, you might also want to **transcribe** the audio.
+
+One great tool I've found is [TurboScribe.ai](https://turboscribe.ai/dashboard) — it works well for long audio and is easy to use.
+
+> After splitting your audio into 30-minute parts, you can upload each part to TurboScribe.ai and get clean text transcripts.
+
+## Further Reading
+
+-   FFmpeg Documentation
+
+-   Audacity User Guide
+
+-   Pydub Documentation
+
+-   Linux Audio Tools Overview

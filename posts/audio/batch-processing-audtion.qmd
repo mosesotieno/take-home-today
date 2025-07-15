@@ -1,0 +1,57 @@
+---
+title: "Batch Processing in Adobe Audition"
+author: "Moses Otieno"
+date: 2025-07-02
+categories: [audio, ffmpeg, audition, how-to]
+tags: [audio processing, automation, audition]
+---
+
+Batch processing in **Adobe Audition** allows you to apply effects, convert file formats, normalize audio, and automate repetitive tasks across multiple audio files at once. Here's how you can do it:
+
+### **Steps for Batch Processing in Adobe Audition**
+
+#### **1. Open the Batch Process Panel**
+
+-   Go to **Window** → **Batch Process** to open the **Batch Processing Panel**.
+
+#### **2. Add Audio Files**
+
+-   Click the **Add Files** button or drag and drop multiple audio files into the batch processing panel.
+
+#### **3. Choose a Favorite (Optional)**
+
+-   If you want to apply a specific effect or process to all files, create a **Favorite** first:
+
+    1.  Go to **Effects** → **Favorites** → **Start Recording Favorite**.
+
+    2.  Apply the desired effects (e.g., noise reduction, EQ, compression, normalization).
+
+    3.  Stop recording and save the **Favorite**.
+
+    4.  Select the **Favorite** from the **Apply Favorite** dropdown in the **Batch Process** panel.
+
+#### **4. Select an Output Format**
+
+-   Choose the output format (**WAV, MP3, AAC, FLAC, etc.**).
+
+-   Click **Options** to adjust bit rate, sample rate, and other settings.
+
+#### **5. Choose an Output Location**
+
+-   Set the destination folder where the processed files will be saved.
+
+#### **6. Start the Batch Process**
+
+-   Click **Run** to process all files.
+
+### **Common Uses of Batch Processing**
+
+-   **Converting multiple files to MP3** (or another format)
+
+-   **Applying noise reduction** to a set of recordings
+
+-   **Normalizing audio levels** across multiple files
+
+-   **Trimming silence** from the beginning and end of recordings
+
+-   **Applying EQ and compression** for a consistent sound

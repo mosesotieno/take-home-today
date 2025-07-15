@@ -1,0 +1,127 @@
+---
+title: "Manual Mount Magic: Fixing Hard Drive Mount Errors in Linux"
+author: "Moses Otieno"
+date: "2025-06-20"
+categories: [linux]
+---
+
+Ever plugged in a hard drive, only for Linux to throw a tantrum and refuse to play nice?\
+That’s exactly what happened to me the other day. My external drive stubbornly refused to mount, throwing up errors and leaving my files out of reach.
+
+But here’s how I wrestled it back into submission — and how you can too!
+
+## The Situation
+
+I plugged in my external drive, and Linux wouldn’t mount it.\
+The device was detected (as `/dev/sdb1`), but I couldn’t access it. No auto-mount. No joy.
+
+So I rolled up my sleeves and used some simple terminal magic.
+
+## Step 1: Unmount the Drive (If Needed)
+
+Sometimes the system tries (and fails) to auto-mount. First, I made sure it was unmounted cleanly:
+
+## Step 2: Create a Mount Point
+
+Next, I needed a proper directory where the drive could be mounted. I created one called `Backups`, but you can choose any name you like:
+
+`sudo mkdir /mnt/Backups`
+
+## Step 3: Mount the Drive
+
+Finally, I manually mounted the drive to my new directory:
+
+`sudo mount /dev/sdb1 /mnt/Backups/`
+
+And just like that — success! The drive became accessible, and my files were right where they should be.
+
+## Do I Have to Follow This Same Procedure Every Time?
+
+If you unplug the drive and plug it back in, Linux *might* auto-mount it correctly — or it might not (especially if the issue was due to filesystem quirks or permissions).
+
+If you find yourself repeating this often, you can add an entry to `/etc/fstab` so the drive mounts automatically to your chosen directory each time it’s connected. That way, no more manual mounting! 🚀
+
+# How to Auto-Mount Your Drive Using `/etc/fstab`
+
+Here’s how you can make your drive auto-mount every time:
+
+### 1️⃣ Find Your Drive’s UUID
+
+Run this command to list UUIDs for all connected drives:
+
+`sudo blkid`
+
+Look for something like this:
+
+`/dev/sdb1: UUID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" TYPE="ext4"`
+
+Copy the UUID of your drive.
+
+### 2️⃣ Backup `/etc/fstab` (Just in Case)
+
+`sudo cp /etc/fstab /etc/fstab.bak`
+
+### 3️⃣ Edit `/etc/fstabsudo nano /etc/fstab`
+
+### 4️⃣ Add an Entry
+
+`UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  /mnt/Backups  ext4  defaults  0  2`
+
+Replace:
+
+-   UUID → your actual UUID
+
+-   `/mnt/Backups` → your mount point
+
+-   `ext4` → file system type (check from `blkid` — could also be `ntfs`, `vfat`, etc.)
+
+### 5️⃣ Test the Entry
+
+`sudo mount -a`
+
+If there’s no error — perfect! Your drive will now auto-mount on boot.
+
+### Bonus Tip: Use `nofail` for External USB Drives
+
+`UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  /mnt/Backups  ext4  defaults,nofail  0  2`
+
+# How to List All Drives in Linux
+
+Now that you know how to fix and auto-mount drives, here’s how you can easily see what’s connected to your system:
+
+### 📋 `lsblk` — The Friendly Overview
+
+`lsblk`
+
+### 📋 `sudo blkid` — Show UUIDs, Labels, Filesystems
+
+`sudo blkid`
+
+### 📋 `df -h` — Show Mounted Drives and Usage
+
+`df -h`
+
+### 📋 `dmesg | grep -i usb` — Check USB Plug Events
+
+`dmesg | grep -i usb`
+
+## Quick Summary — Which Command to Use?
+
+| What you want to know                  | Command to use |
+|----------------------------------------|----------------|
+| See all drives and partitions visually | `lsblk`        |
+| Get UUIDs and labels for `/etc/fstab`  | `sudo blkid`   |
+| See what is mounted + space used       | `df -h`        |
+| Debug USB detection                    | \`dmesg        |
+
+## Takeaway
+
+When Linux refuses to mount your drive, don’t panic.\
+You can easily bring it back with a couple of simple commands — and if you want it automatic, `/etc/fstab` is your best friend.\
+Plus, you now know how to list and identify all your drives like a pro. 🚀
+
+Happy mounting!
+
+**Question for You:**\
+Have you ever run into stubborn drives or quirky Linux mount issues? How did you fix it?\
+Share your tips in the comments below! 🚀

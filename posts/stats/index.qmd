@@ -1,0 +1,8 @@
+---
+title: "Statistics"
+author: "Moses Otieno"
+date: "2024-09-23"
+categories: [news, statistics]
+---
+
+Introductory statistics by Prem S. Mann is a good statistical book for an introduction to statistics.
