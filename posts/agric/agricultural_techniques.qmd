@@ -7,6 +7,7 @@ format:
     toc: true
     code-fold: true
     self-contained: true
+categories: [agriculture]
 editor: visual
 ---
 
@@ -21,7 +22,7 @@ This document highlights a variety of agricultural and gardening techniques obse
 Sprinkler irrigation systems distribute water over crops in a manner that simulates rainfall. This method is commonly used for large agricultural areas, offering an efficient way to water diverse crops. While effective, careful management is required to minimize water loss due to evaporation and wind drift.
 
 ::: {layout-ncol="1"}
-![](Sprinkler%20irrigation.jpg){fig-alt="Field being irrigated by a sprinkler system."}
+![](Sprinkler_irrigation.jpg){fig-alt="Field being irrigated by a sprinkler system."}
 :::
 
 ### 2. Sac Garden (Bag Garden)
