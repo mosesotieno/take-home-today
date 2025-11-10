@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Moses Otieno">
-<meta name="dcterms.date" content="2025-09-08">
+<meta name="dcterms.date" content="2025-11-10">
 
-<title>Plant Nutrients – Take Home Today</title>
+<title>QGIS Tutorial – Take Home Today</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4759,9 +4759,9 @@ vertical-align: -.125em;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Plant Nutrients</h1>
+      <h1 class="title">QGIS Tutorial</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">agriculture</div>
+                <div class="quarto-category">qgis</div>
               </div>
                   </div>
   </div>
@@ -4779,7 +4779,7 @@ vertical-align: -.125em;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 8, 2025</p>
+        <p class="date">November 10, 2025</p>
       </div>
     </div>
     
@@ -4795,15 +4795,24 @@ vertical-align: -.125em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#plant-nutrients-the-big-picture" id="toc-plant-nutrients-the-big-picture" class="nav-link active" data-scroll-target="#plant-nutrients-the-big-picture">Plant Nutrients: The Big Picture</a></li>
-  <li><a href="#macronutrients" id="toc-macronutrients" class="nav-link" data-scroll-target="#macronutrients">Macronutrients</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">1. Data Preparation</a>
   <ul class="collapse">
-  <li><a href="#primary-macronutrients" id="toc-primary-macronutrients" class="nav-link" data-scroll-target="#primary-macronutrients">Primary Macronutrients</a></li>
-  <li><a href="#secondary-macronutrients" id="toc-secondary-macronutrients" class="nav-link" data-scroll-target="#secondary-macronutrients">Secondary Macronutrients</a></li>
+  <li><a href="#input-layers" id="toc-input-layers" class="nav-link" data-scroll-target="#input-layers">Input Layers</a></li>
   </ul></li>
-  <li><a href="#micronutrients" id="toc-micronutrients" class="nav-link" data-scroll-target="#micronutrients">Micronutrients</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#summary-table" id="toc-summary-table" class="nav-link" data-scroll-target="#summary-table">Summary Table</a></li>
+  <li><a href="#creating-the-study-area-boundary" id="toc-creating-the-study-area-boundary" class="nav-link" data-scroll-target="#creating-the-study-area-boundary">2. Creating the Study Area Boundary</a>
+  <ul class="collapse">
+  <li><a href="#step-1-generate-a-convex-hull" id="toc-step-1-generate-a-convex-hull" class="nav-link" data-scroll-target="#step-1-generate-a-convex-hull">Step 1: Generate a Convex Hull</a></li>
+  <li><a href="#step-2-style-the-boundary" id="toc-step-2-style-the-boundary" class="nav-link" data-scroll-target="#step-2-style-the-boundary">Step 2: Style the Boundary</a></li>
+  </ul></li>
+  <li><a href="#displaying-only-selected-subcounty-labels" id="toc-displaying-only-selected-subcounty-labels" class="nav-link" data-scroll-target="#displaying-only-selected-subcounty-labels">3. Displaying Only Selected Subcounty Labels</a>
+  <ul class="collapse">
+  <li><a href="#step-1-select-subcounties" id="toc-step-1-select-subcounties" class="nav-link" data-scroll-target="#step-1-select-subcounties">Step 1: Select Subcounties</a></li>
+  <li><a href="#step-2-label-only-selected-subcounties" id="toc-step-2-label-only-selected-subcounties" class="nav-link" data-scroll-target="#step-2-label-only-selected-subcounties">Step 2: Label Only Selected Subcounties</a></li>
+  <li><a href="#step-3-optional-export-a-label-only-layer" id="toc-step-3-optional-export-a-label-only-layer" class="nav-link" data-scroll-target="#step-3-optional-export-a-label-only-layer">Step 3: Optional — Export a Label-Only Layer</a></li>
+  </ul></li>
+  <li><a href="#finishing-touches" id="toc-finishing-touches" class="nav-link" data-scroll-target="#finishing-touches">4. Finishing Touches</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">5. Output</a></li>
   </ul>
 </nav>
     </div>
@@ -4814,628 +4823,133 @@ vertical-align: -.125em;
 
 
 
-<section id="plant-nutrients-the-big-picture" class="level2">
-<h2 class="anchored" data-anchor-id="plant-nutrients-the-big-picture">Plant Nutrients: The Big Picture</h2>
-<p>Plants need <strong>17 essential nutrients</strong> (so far known) to grow and complete their life cycle. These are grouped into: Macro nutrients and micro nutrients</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This document outlines the steps used to prepare the <strong>C3-EWS Study Area Map</strong> in <strong>QGIS</strong>.<br>
+The objective was to generate a clear and publication-quality map showing:</p>
+<ul>
+<li>Household distribution points,<br>
+</li>
+<li>A clearly defined study area boundary, and<br>
+</li>
+<li>Labels for selected subcounties relevant to the study.</li>
+</ul>
+<hr>
 </section>
-<section id="macronutrients" class="level2">
-<h2 class="anchored" data-anchor-id="macronutrients">Macronutrients</h2>
-<p>Macronutrients are required by plants in relatively large quantities (typically measured in percentage of dry weight or kg/ha). They are divided into primary macronutrients (nitrogen, phosphorus, potassium) and secondary macronutrients (calcium, magnesium, sulfur).</p>
-<section id="primary-macronutrients" class="level3">
-<h3 class="anchored" data-anchor-id="primary-macronutrients">Primary Macronutrients</h3>
+<section id="data-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation">1. Data Preparation</h2>
+<section id="input-layers" class="level3">
+<h3 class="anchored" data-anchor-id="input-layers">Input Layers</h3>
+<ul>
+<li><strong>Households layer:</strong> point data representing surveyed households.<br>
+</li>
+<li><strong>Administrative boundaries:</strong> subcounty and county shapefiles.<br>
+</li>
+<li><strong>Base reference:</strong> Lake Victoria polygon (for geographic context).</li>
+</ul>
+<p>All layers were projected in <strong>WGS 84 (EPSG:4326)</strong> for consistency.</p>
+<hr>
+</section>
+</section>
+<section id="creating-the-study-area-boundary" class="level2">
+<h2 class="anchored" data-anchor-id="creating-the-study-area-boundary">2. Creating the Study Area Boundary</h2>
+<section id="step-1-generate-a-convex-hull" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-generate-a-convex-hull">Step 1: Generate a Convex Hull</h3>
 <ol type="1">
-<li><p>Nitrogen (N)</p>
+<li>Open the <strong>Processing Toolbox</strong> in QGIS.<br>
+</li>
+<li>Search for <strong>“Minimum Bounding Geometry”</strong> (under <em>Vector geometry</em> tools).<br>
+</li>
+<li>Set the following parameters:
 <ul>
-<li><p>Role: Nitrogen is a critical component of amino acids, proteins, nucleic acids (DNA/RNA), and chlorophyll, the molecule responsible for photosynthesis. It drives vegetative growth, particularly leaf and stem development.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Found in chlorophyll (C55H72O5N4Mg), enabling photosynthesis.</p></li>
-<li><p>Integral to enzymes and coenzymes involved in metabolism.</p></li>
-<li><p>Supports cell division and elongation.</p></li>
+<li><strong>Input layer:</strong> Households layer<br>
+</li>
+<li><strong>Geometry type:</strong> Convex Hull<br>
+</li>
+<li><strong>Group field (optional):</strong> None<br>
+</li>
+<li><strong>Output layer:</strong> <code>study_area_boundary.shp</code></li>
 </ul></li>
-<li><p>Typical Plant Concentration: 1–5% of dry weight.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li><p>Exists in soil as nitrate (NO₃⁻) or ammonium (NH₄⁺).</p></li>
-<li><p>Nitrate is highly mobile in soil, prone to leaching, especially in sandy soils or heavy rainfall.</p></li>
-<li><p>Ammonium is less mobile, often bound to soil particles.</p></li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li><p>Organic: Compost, manure, cover crops (e.g., legumes via nitrogen fixation).</p></li>
-<li><p>Inorganic: Urea, ammonium nitrate, calcium ammonium nitrate.</p></li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Yellowing of older leaves (chlorosis) due to reduced chlorophyll.</p></li>
-<li><p>Stunted growth, reduced vigor, and smaller leaves.</p></li>
-<li><p>Poor fruit or seed development.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li><p>Excessive vegetative growth at the expense of reproductive structures.</p></li>
-<li><p>Dark green, succulent leaves prone to pest and disease damage.</p></li>
-<li><p>Increased risk of lodging (stem collapse).</p></li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>High nitrogen can exacerbate potassium or magnesium deficiencies.</p></li>
-<li><p>Balanced N:P:K ratios are critical for optimal growth.</p></li>
-</ul></li>
-</ul></li>
-<li><p>Phosphorus (P)</p>
-<ul>
-<li><p>Role: Phosphorus is essential for energy transfer (via ATP and ADP), root development, and reproductive growth (flowering, fruiting, and seed formation).</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Component of phospholipids in cell membranes.</p></li>
-<li><p>Key in DNA, RNA, and energy metabolism.</p></li>
-<li><p>Supports root cell division and nutrient uptake.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 0.1–0.5% of dry weight.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li><p>Exists as phosphate ions (H₂PO₄⁻ or HPO₄²⁻), which are relatively immobile in soil.</p></li>
-<li><p>Often bound to iron, aluminum, or calcium in acidic or alkaline soils, reducing availability.</p></li>
-<li><p>Mycorrhizal fungi enhance phosphorus uptake in many crops.</p></li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li><p>Organic: Bone meal, manure, compost.</p></li>
-<li><p>Inorganic: Superphosphate, triple superphosphate, monoammonium phosphate.</p></li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Dark green or purplish leaves (especially in young plants).</p></li>
-<li><p>Poor root development, delayed flowering, and reduced seed/fruit yield.</p></li>
-<li><p>Stunted growth, particularly in early stages.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li>Rare, but can induce micronutrient deficiencies (e.g., zinc or iron) by forming insoluble complexes.</li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>Phosphorus availability is pH-dependent (optimal at pH 6–7).</p></li>
-<li><p>Excess phosphorus can reduce zinc and iron uptake.</p></li>
-</ul></li>
-</ul></li>
-<li><p>Potassium (K)</p>
-<ul>
-<li><p>Role: Potassium regulates water and nutrient movement, enzyme activation, and stress resistance. It enhances fruit quality and disease resistance.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Activates over 60 enzymes involved in photosynthesis, protein synthesis, and carbohydrate metabolism.</p></li>
-<li><p>Regulates stomatal opening for water and CO₂ exchange.</p></li>
-<li><p>Strengthens cell walls, improving plant structure.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 1–4% of dry weight.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li><p>Exists as K⁺ ions, moderately mobile in soil.</p></li>
-<li><p>Held in soil by cation exchange capacity (CEC), less prone to leaching than nitrogen.</p></li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li><p>Organic: Wood ash, compost, green manures.</p></li>
-<li><p>Inorganic: Potassium chloride (muriate of potash), potassium sulfate.</p></li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Yellowing or scorching of leaf margins, starting with older leaves.</p></li>
-<li><p>Weak stems, lodging, and reduced drought tolerance.</p></li>
-<li><p>Poor fruit quality (size, flavor, shelf life).</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li><p>Can induce magnesium or calcium deficiencies due to cation competition.</p></li>
-<li><p>Salinity stress in sensitive crops.</p></li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>High potassium can reduce magnesium and calcium uptake.</p></li>
-<li><p>Synergistic with nitrogen for balanced growth.</p></li>
-</ul></li>
-</ul></li>
+<li>Run the tool to create a polygon that outlines the outermost extent of the household locations.</li>
 </ol>
 </section>
-<section id="secondary-macronutrients" class="level3">
-<h3 class="anchored" data-anchor-id="secondary-macronutrients">Secondary Macronutrients</h3>
+<section id="step-2-style-the-boundary" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-style-the-boundary">Step 2: Style the Boundary</h3>
+<ol type="1">
+<li>Right-click <code>study_area_boundary</code> → <strong>Properties → Symbology</strong>.<br>
+</li>
+<li>Choose:
+<ul>
+<li><strong>Symbol layer type:</strong> Simple Line<br>
+</li>
+<li><strong>Stroke color:</strong> Soft red or blue (e.g., <code>#FF6666</code>)<br>
+</li>
+<li><strong>Stroke width:</strong> 0.8–1.2 pt<br>
+</li>
+<li><strong>Stroke style:</strong> Dashed<br>
+</li>
+<li><strong>Opacity:</strong> 60–70%<br>
+</li>
+</ul></li>
+<li>(Optional) Add a transparent fill for subtle shading:
+<ul>
+<li>Symbol layer type → Simple Fill<br>
+</li>
+<li>Fill color → none<br>
+</li>
+<li>Outline color → same as above.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="displaying-only-selected-subcounty-labels" class="level2">
+<h2 class="anchored" data-anchor-id="displaying-only-selected-subcounty-labels">3. Displaying Only Selected Subcounty Labels</h2>
+<p>To keep the map clean and focused, only a few subcounties were labeled.</p>
+<section id="step-1-select-subcounties" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-select-subcounties">Step 1: Select Subcounties</h3>
+<p>Open the <strong>Attribute Table</strong> of the subcounty layer and use <strong>Select by Expression</strong>:</p>
+<p>```sql “SubCounty” IN (‘Ugunja’, ‘Ugenya’, ‘Alego Usonga’, ‘Bunyala’)</p>
+</section>
+<section id="step-2-label-only-selected-subcounties" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-label-only-selected-subcounties">Step 2: Label Only Selected Subcounties</h3>
+<ol type="1">
+<li><p>Right-click the subcounty layer → <strong>Properties → Labels</strong>.</p></li>
+<li><p>Enable <strong>Single Labels</strong> and choose the name field (e.g., <code>&quot;SubCounty&quot;</code>)</p></li>
+<li><p>Click the <strong>Data-defined override (Σ)</strong> next to <em>Label this layer</em> → <em>Edit</em> and enter:</p></li>
+</ol>
+<p>CASE WHEN “SubCounty” IN (‘Ugunja’, ‘Ugenya’, ‘Alego Usonga’, ‘Bunyala’) THEN 1 ELSE 0 END</p>
 <ol start="4" type="1">
-<li><p>Calcium (Ca)</p>
-<ul>
-<li><p>Role: Calcium strengthens cell walls, supports root and shoot growth, and regulates nutrient uptake and signaling.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Component of calcium pectate in cell walls, maintaining structural integrity.</p></li>
-<li><p>Acts as a secondary messenger in plant signaling pathways.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 0.5–2% of dry weight.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li><p>Exists as Ca²⁺, relatively immobile in plants (moves via xylem, not phloem).</p></li>
-<li><p>Availability decreases in acidic soils or high potassium/magnesium environments.</p></li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li><p>Organic: Eggshells, bone meal.</p></li>
-<li><p>Inorganic: Gypsum, lime (calcium carbonate), calcium nitrate.</p></li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Distorted or necrotic young leaves and shoot tips (e.g., tip burn in lettuce).</p></li>
-<li><p>Blossom-end rot in tomatoes and peppers.</p></li>
-<li><p>Poor root development.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li>Rare, but can reduce magnesium and potassium uptake.</li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>Competes with potassium and magnesium for uptake.</p></li>
-<li><p>Liming acidic soils increases calcium availability.</p></li>
-</ul></li>
-</ul></li>
-<li><p>Magnesium (Mg)</p>
-<ul>
-<li><p>Role: Magnesium is the central atom in chlorophyll and is critical for photosynthesis and enzyme activation.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Core of chlorophyll molecule (C55H72O5N4Mg).</p></li>
-<li><p>Activates enzymes in carbohydrate and protein metabolism.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 0.2–0.8% of dry weight.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li><p>Exists as Mg²⁺, moderately mobile in soil.</p></li>
-<li><p>Leaching is a concern in sandy or acidic soils.</p></li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li><p>Organic: Compost, manure.</p></li>
-<li><p>Inorganic: Dolomite, magnesium sulfate (Epsom salts).</p></li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Interveinal chlorosis (yellowing between veins) in older leaves.</p></li>
-<li><p>Reduced photosynthesis, leading to stunted growth.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li>Rare, but can interfere with calcium and potassium uptake.</li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li>High potassium or calcium can reduce magnesium availability.</li>
-</ul></li>
-</ul></li>
-<li><p>Sulfur (S)</p>
-<ul>
-<li><p>Role: Sulfur is essential for protein synthesis, enzyme function, and the formation of certain vitamins and oils.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Component of amino acids (cysteine, methionine).</p></li>
-<li><p>Found in coenzymes like Coenzyme A, vital for metabolism.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 0.1–0.5% of dry weight.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li><p>Exists as sulfate (SO₄²⁻), mobile in soil and prone to leaching.</p></li>
-<li><p>Organic matter is a major sulfur reservoir.</p></li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li><p>Organic: Manure, compost.</p></li>
-<li><p>Inorganic: Ammonium sulfate, gypsum, elemental sulfur.</p></li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Yellowing of younger leaves (unlike nitrogen, which affects older leaves).</p></li>
-<li><p>Reduced protein synthesis, stunted growth.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li>Rare, but can lead to soil acidification over time.</li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>Synergistic with nitrogen for protein formation.</p></li>
-<li><p>High nitrogen can increase sulfur demand.</p></li>
-</ul></li>
-</ul></li>
+<li>Apply and close.</li>
 </ol>
 </section>
-</section>
-<section id="micronutrients" class="level2">
-<h2 class="anchored" data-anchor-id="micronutrients">Micronutrients</h2>
-<p><strong>Micronutrients</strong> are required in trace amounts (measured in ppm or mg/kg) but are equally critical for plant health. Deficiencies can severely limit growth despite their low concentration.</p>
+<section id="step-3-optional-export-a-label-only-layer" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-optional-export-a-label-only-layer">Step 3: Optional — Export a Label-Only Layer</h3>
 <ol type="1">
-<li><p>Iron (Fe)</p>
-<ul>
-<li><p>Role: Essential for chlorophyll synthesis, respiration, and enzyme function.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Component of cytochromes and ferredoxin in electron transport chains.</p></li>
-<li><p>Involved in nitrogen fixation and metabolism.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 50–150 ppm.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li><p>Exists as Fe²⁺ (ferrous) or Fe³⁺ (ferric), with Fe²⁺ being more plant-available.</p></li>
-<li><p>Availability decreases in alkaline soils (pH &gt; 7).</p></li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li><p>Organic: Compost, manure.</p></li>
-<li><p>Inorganic: Ferrous sulfate, chelated iron (e.g., Fe-EDTA).</p></li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Interveinal chlorosis in young leaves.</p></li>
-<li><p>Reduced photosynthesis, leading to stunted growth.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li><p>Bronzing or spotting of leaves.</p></li>
-<li><p>Can interfere with phosphorus uptake.</p></li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>High phosphorus or calcium can reduce iron availability.</p></li>
-<li><p>Chelation (e.g., with EDTA) improves uptake in alkaline soils.</p></li>
-</ul></li>
-</ul></li>
-<li><p>Manganese (Mn)</p>
-<ul>
-<li><p>Role: Activates enzymes in photosynthesis, respiration, and nitrogen metabolism.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Involved in the water-splitting reaction of photosynthesis (photosystem II).</p></li>
-<li><p>Supports lignin and flavonoid synthesis.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 20–100 ppm.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li>Exists as Mn²⁺, availability decreases in alkaline or waterlogged soils.</li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li>Inorganic: Manganese sulfate, manganese chelates.</li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Interveinal chlorosis in young leaves, often with grayish-green areas.</p></li>
-<li><p>Reduced photosynthesis and growth.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li><p>Brown spots or necrosis on leaves.</p></li>
-<li><p>Can induce iron deficiency.</p></li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>High iron or zinc can reduce manganese uptake.</p></li>
-<li><p>Optimal at slightly acidic pH (5.5–6.5).</p></li>
-</ul></li>
-</ul></li>
-<li><p>Zinc (Zn)</p>
-<ul>
-<li><p>Role: Essential for enzyme activation, protein synthesis, and hormone production (e.g., auxin).</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Component of over 300 enzymes, including those in carbohydrate metabolism.</p></li>
-<li><p>Stabilizes DNA and RNA.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 15–50 ppm.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li>Exists as Zn²⁺, less available in high-pH or high-phosphorus soils.</li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li>Inorganic: Zinc sulfate, zinc chelates.</li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Small, distorted leaves (“little leaf” syndrome).</p></li>
-<li><p>Reduced internode length, rosetting, and poor fruit set.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li>Can induce iron or manganese deficiencies.</li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>High phosphorus reduces zinc availability.</p></li>
-<li><p>Chelated forms improve uptake in alkaline soils.</p></li>
-</ul></li>
-</ul></li>
-<li><p>Copper (Cu)</p>
-<ul>
-<li><p>Role: Involved in photosynthesis, respiration, and lignin formation.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Component of plastocyanin in photosynthesis.</p></li>
-<li><p>Strengthens cell walls via lignin synthesis.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 5–20 ppm.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li>Exists as Cu²⁺, tightly bound to organic matter, reducing availability.</li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li>Inorganic: Copper sulfate, copper chelates.</li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Wilting or dieback of shoot tips.</p></li>
-<li><p>Reduced lignification, leading to weak stems.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li><p>Toxic to roots, causing reduced growth.</p></li>
-<li><p>Can induce iron deficiency.</p></li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li>High nitrogen or zinc can reduce copper uptake.</li>
-</ul></li>
-</ul></li>
-<li><p>Boron (B)</p>
-<ul>
-<li><p>Role: Essential for cell wall formation, pollen tube growth, and sugar transport.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Forms complexes with cell wall pectins, aiding structural integrity.</p></li>
-<li><p>Supports reproductive development and seed formation.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 10–50 ppm.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li>Exists as boric acid (H₃BO₃), mobile in soil but easily leached in sandy soils.</li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li>Inorganic: Borax, boric acid.</li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Brittle, distorted young leaves or growing points.</p></li>
-<li><p>Poor fruit set, hollow stems (e.g., in brassicas).</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li>Leaf margin necrosis, reduced growth.</li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>Sensitive to soil pH; availability peaks at pH 5–7.</p></li>
-<li><p>High calcium can reduce boron uptake.</p></li>
-</ul></li>
-</ul></li>
-<li><p>Molybdenum (Mo)</p>
-<ul>
-<li><p>Role: Critical for nitrogen fixation and nitrate reduction.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Component of nitrate reductase and nitrogenase enzymes.</p></li>
-<li><p>Supports sulfur metabolism.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 0.1–1 ppm.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li>Exists as molybdate (MoO₄²⁻), more available in alkaline soils.</li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li>Inorganic: Sodium molybdate, ammonium molybdate.</li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li><p>Yellowing or whip-tail in brassicas (e.g., cauliflower).</p></li>
-<li><p>Reduced nitrogen fixation in legumes.</p></li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li>Rare, but toxic to livestock if accumulated in forage.</li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li><p>High sulfur or phosphorus can reduce molybdenum uptake.</p></li>
-<li><p>Availability increases with soil pH.</p></li>
-</ul></li>
-</ul></li>
-<li><p>Chlorine (Cl)</p>
-<ul>
-<li><p>Role: Involved in photosynthesis and osmotic regulation.</p></li>
-<li><p>Biochemical Function:</p>
-<ul>
-<li><p>Supports oxygen evolution in photosynthesis (photosystem II).</p></li>
-<li><p>Maintains turgor pressure in cells.</p></li>
-</ul></li>
-<li><p>Typical Plant Concentration: 100–500 ppm.</p></li>
-<li><p>Soil Dynamics:</p>
-<ul>
-<li>Exists as chloride (Cl⁻), highly mobile in soil.</li>
-</ul></li>
-<li><p>Sources:</p>
-<ul>
-<li>Naturally abundant in most soils; rarely supplemented.</li>
-</ul></li>
-<li><p>Deficiency Symptoms:</p>
-<ul>
-<li>Wilting, chlorosis, and reduced leaf size (rare in practice).</li>
-</ul></li>
-<li><p>Excess Symptoms:</p>
-<ul>
-<li>Salt stress, leaf burn, and reduced growth.</li>
-</ul></li>
-<li><p>Interactions:</p>
-<ul>
-<li>High chloride can compete with nitrate uptake.</li>
-</ul></li>
-</ul></li>
+<li><p>With the desired subcounties selected, go to <strong>Export → Save Selected Features As…</strong></p></li>
+<li><p>Save as <code>labeled_subcounties.shp</code>.</p></li>
+<li><p>Turn off labeling in the main subcounty layer and label only the new one.</p></li>
 </ol>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>Plants require 17 essential nutrients for growth and development. These are divided into macronutrients and micronutrients based on the quantities needed:</p>
+</section>
+<section id="finishing-touches" class="level2">
+<h2 class="anchored" data-anchor-id="finishing-touches">4. Finishing Touches</h2>
 <ul>
-<li><p>Macronutrients (9 total):</p>
-<ul>
-<li><p>Primary: Nitrogen (N), Phosphorus (P), Potassium (K)</p></li>
-<li><p>Secondary: Calcium (Ca), Magnesium (Mg), Sulfur (S)</p></li>
-<li><p>Non-mineral: Carbon (C), Hydrogen (H), Oxygen (O) (obtained from air and water)</p></li>
-</ul></li>
-<li><p>Micronutrients (8 total):</p>
-<ul>
-<li>Iron (Fe), Manganese (Mn), Zinc (Zn), Copper (Cu), Boron (B), Molybdenum (Mo), Chlorine (Cl), Nickel (Ni)</li>
-</ul></li>
+<li><p>Adjust the <strong>layer order</strong>: place the study area boundary above administrative layers but below household points.</p>
+<p>Add the <strong>north arrow, scale bar, and legend</strong>.</p>
+<p>Customize the map title as:<br>
+<strong>“C3-EWS Study Area”</strong></p>
+<p>Optionally, annotate the boundary with a text label.</p></li>
 </ul>
 </section>
-<section id="summary-table" class="level2">
-<h2 class="anchored" data-anchor-id="summary-table">Summary Table</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Nutrient</th>
-<th>Type</th>
-<th>Key Role</th>
-<th>Deficiency Symptoms</th>
-<th>Sources</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Nitrogen (N)</td>
-<td>Primary Macronutrient</td>
-<td>Vegetative growth, chlorophyll</td>
-<td>Yellowing older leaves, stunted growth</td>
-<td>Urea, manure</td>
-</tr>
-<tr class="even">
-<td>Phosphorus (P)</td>
-<td>Primary Macronutrient</td>
-<td>Root growth, energy transfer</td>
-<td>Purplish leaves, poor flowering</td>
-<td>Superphosphate, bone meal</td>
-</tr>
-<tr class="odd">
-<td>Potassium (K)</td>
-<td>Primary Macronutrient</td>
-<td>Water regulation, stress resistance</td>
-<td>Scorched leaf margins, weak stems</td>
-<td>Potassium sulfate, wood ash</td>
-</tr>
-<tr class="even">
-<td>Calcium (Ca)</td>
-<td>Secondary Macronutrient</td>
-<td>Cell wall strength, signaling</td>
-<td>Blossom-end rot, tip burn</td>
-<td>Lime, gypsum</td>
-</tr>
-<tr class="odd">
-<td>Magnesium (Mg)</td>
-<td>Secondary Macronutrient</td>
-<td>Chlorophyll, enzyme activation</td>
-<td>Interveinal chlorosis</td>
-<td>Epsom salts, dolomite</td>
-</tr>
-<tr class="even">
-<td>Sulfur (S)</td>
-<td>Secondary Macronutrient</td>
-<td>Protein synthesis</td>
-<td>Yellowing young leaves</td>
-<td>Ammonium sulfate, manure</td>
-</tr>
-<tr class="odd">
-<td>Carbon (C)</td>
-<td>Non-mineral Macronutrient</td>
-<td>Structural component, photosynthesis</td>
-<td>Not typically deficient (from CO₂)</td>
-<td>Air (CO₂)</td>
-</tr>
-<tr class="even">
-<td>Hydrogen (H)</td>
-<td>Non-mineral Macronutrient</td>
-<td>Water, organic compounds</td>
-<td>Not typically deficient (from H₂O)</td>
-<td>Water</td>
-</tr>
-<tr class="odd">
-<td>Oxygen (O)</td>
-<td>Non-mineral Macronutrient</td>
-<td>Respiration, organic compounds</td>
-<td>Not typically deficient (from air/H₂O)</td>
-<td>Air, water</td>
-</tr>
-<tr class="even">
-<td>Iron (Fe)</td>
-<td>Micronutrient</td>
-<td>Chlorophyll synthesis</td>
-<td>Interveinal chlorosis in young leaves</td>
-<td>Ferrous sulfate, chelates</td>
-</tr>
-<tr class="odd">
-<td>Manganese (Mn)</td>
-<td>Micronutrient</td>
-<td>Photosynthesis, enzyme activation</td>
-<td>Grayish-green chlorosis</td>
-<td>Manganese sulfate</td>
-</tr>
-<tr class="even">
-<td>Zinc (Zn)</td>
-<td>Micronutrient</td>
-<td>Hormone production, enzyme function</td>
-<td>Small leaves, rosetting</td>
-<td>Zinc sulfate</td>
-</tr>
-<tr class="odd">
-<td>Copper (Cu)</td>
-<td>Micronutrient</td>
-<td>Photosynthesis, lignin formation</td>
-<td>Wilting shoot tips</td>
-<td>Copper sulfate</td>
-</tr>
-<tr class="even">
-<td>Boron (B)</td>
-<td>Micronutrient</td>
-<td>Cell wall formation, pollen growth</td>
-<td>Brittle leaves, poor fruit set</td>
-<td>Borax</td>
-</tr>
-<tr class="odd">
-<td>Molybdenum (Mo)</td>
-<td>Micronutrient</td>
-<td>Nitrogen fixation</td>
-<td>Whip-tail in brassicas</td>
-<td>Sodium molybdate</td>
-</tr>
-<tr class="even">
-<td>Chlorine (Cl)</td>
-<td>Micronutrient</td>
-<td>Photosynthesis, osmotic regulation</td>
-<td>Wilting, chlorosis (rare)</td>
-<td>Naturally abundant</td>
-</tr>
-<tr class="odd">
-<td>Nickel (Ni)</td>
-<td>Micronutrient</td>
-<td>Urease enzyme activation</td>
-<td>Leaf tip necrosis, poor seed viability</td>
-<td>Nickel sulfate</td>
-</tr>
-</tbody>
-</table>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">5. Output</h2>
+<p>The final map clearly shows:</p>
+<ul>
+<li><p>The <strong>distribution of households</strong> within the study area</p>
+<p>A <strong>dashed boundary polygon</strong> outlining the study extent, and</p>
+<p><strong>Labels for key subcounties</strong> relevant to the C3-EWS study.</p></li>
+</ul>
 
 
 </section>

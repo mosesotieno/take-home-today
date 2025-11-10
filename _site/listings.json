@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/qgis/intro.html",
       "/posts/agric/crop-health.html",
       "/posts/agric/plant-nutrients.html",
       "/posts/agric/agriculture.html",
